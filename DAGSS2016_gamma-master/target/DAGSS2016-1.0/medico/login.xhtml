@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+>      
+
+    <body>
+        <ui:composition template="/plantillas/plantillaComun.xhtml">
+           <ui:define name="encabezado">
+            <b:row>
+                <b:column class="encabezado1" col-xs="12">
+                    <b:image class="logoIndex img-fluid" value="../resources/img/logo.png" tooltip="App logo" />
+                </b:column>
+               <b:column class="encabezado2" col-xs="12">  
+                </b:column>
+            </b:row>
+            </ui:define>
+            <ui:define name="contenido">
+                <b:row style="padding-top: 20px;">
+                        <b:column col-xs="12" col-md="6" class="text-center">
+                            <h1>Medico</h1>
+                            <b:messages style="font-size: 15px;"/>
+                            <h:form>
+                                <b:panelGrid colSpans="12" size="xs" class="text-center">
+                                    <b:inputText id="dni" value="#{medicoControlador.dni}" span="8" offset-md="2">
+                                        <f:facet name="prepend">
+                                            <h:outputText  value="DNI" />
+                                        </f:facet>
+                                        <f:facet name="append">
+                                            <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                                        </f:facet>
+                                    </b:inputText>    
+                                    <b:inputText id="numColegiado" value="#{medicoControlador.numeroColegiado}" span="8" offset-md="2">
+                                        <f:facet name="prepend">
+                                            <h:outputText value="#Colegiado" />
+                                        </f:facet>
+                                        <f:facet name="append">
+                                            <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                        </f:facet>
+                                    </b:inputText>    
+                                    <b:inputSecret id="password" value="#{medicoControlador.password}" span="8" offset-md="2">
+                                        <f:facet name="prepend">
+                                            <h:outputText value="Pass" />
+                                        </f:facet>
+                                        <f:facet name="append">
+                                            <i class="fa fa-unlock" aria-hidden="true"></i>
+                                        </f:facet>
+                                    </b:inputSecret>    
+                                    <b:commandButton span="6" offset-md="3" look="success" id="test" value="Login" action="#{medicoControlador.doLogin()}"/>
+                                </b:panelGrid>
+                            </h:form>
+                        </b:column>    
+                        <b:column col-xs="12" col-md="6" class="text-center">
+                            <span class="icon-Medic" style="font-size: 300px !important;"></span>
+                        </b:column>
+                    </b:row>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

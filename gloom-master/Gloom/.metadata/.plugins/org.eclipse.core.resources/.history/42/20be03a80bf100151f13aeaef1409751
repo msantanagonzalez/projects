@@ -1,0 +1,9 @@
+
+public class test {
+	public static void main(String[] args) {
+		FamiliasJuego f = new FamiliasJuego();
+		Mazo m = new Mazo();
+		Familia f1 = f.getFamilia(1);
+		System.out.println(f1.toString());
+	}
+}

@@ -1,0 +1,8 @@
+
+public class test {
+	public static void main(String[] args) {
+		FamiliasJuego f = new FamiliasJuego();
+		Familia f1 = f.getFamilia(4);
+		System.out.println(f1.toString());
+	}
+}

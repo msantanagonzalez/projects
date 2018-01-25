@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:weightSum="1">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+            android:layout_weight="0.21" android:weightSum="1">
+        <TextView
+                android:layout_width="261dp"
+                android:layout_height="wrap_content"
+                android:text="Geek Reminder"
+                android:id="@+id/titulo" android:layout_gravity="center_horizontal" android:layout_weight="0.14"
+                android:textAlignment="center" android:paddingLeft="50dp" android:textSize="25dp"
+                android:textStyle="bold"/>
+        <TextView
+                android:layout_width="269dp"
+                android:layout_height="wrap_content"
+                android:text="La aplicacion para que no te olvides de ver todas las series que estas siguiendo"
+                android:id="@+id/descripcion" android:layout_gravity="center_horizontal" android:layout_weight="0.19"
+                android:textStyle="italic" android:textSize="18dp"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06" android:weightSum="1">
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Listar Series"
+                android:id="@+id/listar"/>
+    </LinearLayout>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+            android:layout_weight="0.05">
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Alta Serie"
+                android:id="@+id/serie"/>
+    </LinearLayout>
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_gravity="center_horizontal"
+            android:layout_weight="0.04">
+        <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Alta Alarma"
+                android:id="@+id/alarma" android:layout_gravity="center"/>
+    </FrameLayout>
+</LinearLayout>
+

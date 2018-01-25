@@ -1,0 +1,141 @@
+/* Fuentes y colores globales */
+body {
+    background-color: #ffffff;
+    font-size: 13px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #003C3C;  
+    margin: 10px;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+    margin: 0px 0px 40px; 
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+/* Override classes */
+.caption{
+    color: #003C3C !important; 
+}
+h1,h2,h3{
+    color: #003C3C !important;
+}
+.input-group {
+    margin: 10px 0px 10px !important;
+}
+/* Margenes y Colores de plantilla global */
+.centrar{
+    margin-left: auto;
+    margin-right: auto;
+}
+.caption{
+    color: #003C3C !important; 
+}
+.icon-Patient{
+    color: #D20005 !important;
+    font-size: 100px !important;
+}
+.icon-Pharmacy{
+    color: green !important;
+    font-size: 100px !important;
+}
+.icon-Medic{
+    color: #045491 !important;
+    font-size: 100px !important;
+}
+.icon-Admin{
+    color: #8A0707 !important;
+    font-size: 100px !important;
+}
+.indexContent{
+    margin-top: 10%;
+}
+#pagina{
+    width: 100%;
+}
+
+#splitLine{
+    border-bottom:4px solid #8A0707;
+}
+.logoIndex{
+    height: auto;
+    max-width: 50%;
+}
+.logoSmall{
+    height: auto;
+    max-width: 40%;
+}
+.encabezado1{
+    background-color: #F5F5F5;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.encabezado1Menu{
+    background-color: #F5F5F5;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.encabezado2{
+    background-color: #EFEFEF;
+    height: 50px;
+    text-align: center;
+}
+.encabezado2Menu{
+    padding-top: 10px;
+    background-color: #EFEFEF;
+    min-height:50px;
+}
+#cuerpo{
+}
+
+#contenido{
+}
+
+#izquierda{
+}
+
+#pie{
+}
+
+.errores {
+    color: red;
+    font-weight: bold;
+}
+
+
+.tablaBase {
+	border-width: 1px;
+	border-spacing: 0px;
+	border-style: solid;
+	border-color: black;
+	border-collapse: collapse;
+}
+.tablaBase th {
+	border-width: 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: black;
+}
+.tablaBase td {
+	border-width: 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: black;
+}

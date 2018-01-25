@@ -1,0 +1,9 @@
+public class Jugador {
+	private String nombre;
+	private Mano mano;
+	private Familia familia;
+	
+	public Jugador(String nombre){
+		this.nombre = nombre;
+	}
+}

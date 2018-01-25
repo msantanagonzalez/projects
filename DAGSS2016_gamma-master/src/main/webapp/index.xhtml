@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+
+    <ui:composition template="./plantillas/plantillaComun.xhtml">
+        <ui:define name="encabezado">
+           <b:row>
+                <b:column class="encabezado1" col-xs="12">
+                    <b:image class="logoIndex img-fluid" value="resources/img/logo.png" tooltip="App logo" />
+                </b:column>
+               <b:column class="encabezado2" col-xs="12">  
+                </b:column>
+            </b:row>
+        </ui:define>
+        
+        <ui:define name="contenido">
+            <b:row class="text-center indexContent">
+                <b:column col-xs="12" col-md="3">
+                    <h:link outcome="/paciente/login" style=" text-decoration: none;">
+                        <b:thumbnail>
+                            <span class="icon-Patient"></span>
+                            <f:facet name="caption">
+                                <h3>Pacientes</h3>
+                            </f:facet>
+                        </b:thumbnail>
+                    </h:link>
+                </b:column>
+                <b:column col-xs="12" col-md="3">
+                    <h:link outcome="/farmacia/login" style=" text-decoration: none;">
+                        <b:thumbnail>
+                            <span class="icon-Pharmacy"></span>
+                            <f:facet name="caption">
+                                <h3>Farmacias</h3>
+                            </f:facet>
+                        </b:thumbnail>
+                    </h:link>        
+                </b:column>
+                <b:column col-xs="12" col-md="3">
+                    <h:link outcome="/medico/login" style=" text-decoration: none;">
+                        <b:thumbnail>
+                            <span class="icon-Medic"></span>
+                            <f:facet name="caption">
+                                <h3>Medicos</h3>
+                            </f:facet>
+                        </b:thumbnail>
+                    </h:link>
+                </b:column>
+                <b:column col-xs="12" col-md="3">
+                    <h:link outcome="/administrador/login" style=" text-decoration: none;">
+                        <b:thumbnail>
+                            <span class="icon-Admin"></span>
+                            <f:facet name="caption">
+                                <h3>Administradores</h3>
+                            </f:facet>
+                        </b:thumbnail>
+                    </h:link>
+                </b:column>
+            </b:row>
+        </ui:define>
+
+    </ui:composition>
+</html>

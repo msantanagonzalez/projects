@@ -1,0 +1,2 @@
+en la clase familia sobra el atributo autoestima, ya que cada personaje tiene un autoestima no la familia entera
+	- Ese atributo es para la familia, el objetivo es poder acceder al autoestima total de la familia mediante una llamada a cada personaje y verificando el autoestima de estos.

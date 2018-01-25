@@ -1,0 +1,10 @@
+
+public class test {
+	public static void main(String[] args) {
+		FamiliasJuego f = new FamiliasJuego();
+		Familia f1 = f.getFamilia(0);
+		System.out.println("-----| Familia: |-----");
+		System.out.println(f1.toString());
+		System.out.println("-----| Personaje: |-----");
+	}
+}

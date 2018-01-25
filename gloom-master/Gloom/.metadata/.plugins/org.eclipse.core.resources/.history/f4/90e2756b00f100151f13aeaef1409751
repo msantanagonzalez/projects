@@ -1,0 +1,3 @@
+public class Familia {
+	private Personaje[] cartasPersonaje = new Personaje[5];
+}

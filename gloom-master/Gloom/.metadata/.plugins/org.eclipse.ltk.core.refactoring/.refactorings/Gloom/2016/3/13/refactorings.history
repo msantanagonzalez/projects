@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract method &apos;private static void extracted() throws Exception &apos; from &apos;Juego.setJugadores()&apos; to &apos;Juego&apos;&#x0D;&#x0A;- Original project: &apos;Gloom&apos;&#x0D;&#x0A;- Method name: &apos;extracted&apos;&#x0D;&#x0A;- Destination type: &apos;Juego&apos;&#x0D;&#x0A;- Declared visibility: &apos;private&apos;" comments="false" description="Extract method &apos;extracted&apos;" destination="0" exceptions="false" flags="786434" id="org.eclipse.jdt.ui.extract.method" input="/src&lt;{Juego.java" name="extracted" replace="false" selection="358 22" stamp="1459252964388" version="1.0" visibility="2"/>
+</session>

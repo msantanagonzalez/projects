@@ -1,0 +1,7 @@
+public class Carta{
+	private String tipo;
+	private boolean esMuerte;
+	private int espacio1;
+	private int espacio2;
+	private int espacio3;
+}

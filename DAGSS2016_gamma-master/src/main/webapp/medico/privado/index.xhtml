@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+
+    <body>
+
+        <ui:composition template="/plantillas/plantillaComun.xhtml">
+            <ui:define name="encabezado">
+                <ui:include src="/plantillas/menuComun.xhtml"/> 
+            </ui:define>
+           
+            <ui:define name="nombreUsuario">
+                <h:outputText  value="#{medicoControlador.medicoActual.centroSalud.nombre}" />
+            </ui:define>
+
+            <ui:define name="contenido">
+                <b:modal id="amodal" title="Crear Prescripcion" styleClass="modalPseudoClass">
+                        <p>
+                            <h:form styleClass="modalPseudoClass" id="medicamentos">
+                                <h:outputText  value="Medico: #{medicoControlador.medicoActual.nombre} #{medicoControlador.medicoActual.apellidos}" />
+                                <br/>
+                                <h:outputText  value="Paciente: #{medicoControlador.citaActual.paciente.nombre} #{medicoControlador.citaActual.paciente.apellidos}" />
+                                <br/>
+                                <h:outputText rendered="#{prescripcionControlador.medicamentoSeleccionado != null}" value="Medicamento: #{prescripcionControlador.medicamentoSeleccionado.nombre} - #{prescripcionControlador.medicamentoSeleccionado.principioActivo}" />
+                                <br/>
+                                <b:commandButton rendered="#{prescripcionControlador.medicamentoSeleccionado != null}" value="Eliminar medicamento" update="medicamentos" actionListener="#{prescripcionControlador.unsetMedicamento()}" oncomplete="$('.modalPseudoClass').modal();"/>
+                                <br/>
+                                <b:dateTimePicker value="#{prescripcionControlador.fechaInicio}" label="Fecha inicio:" render-label="true" show-time='false' />
+                                <b:dateTimePicker value="#{prescripcionControlador.fechaFin}" label="Fecha fin:" render-label="true" show-time='false' />
+                                <br/>
+                                <b:inputTextarea rendered="#{prescripcionControlador.medicamentoSeleccionado != null}" placeholder="Indicaciones" value="#{prescripcionControlador.indicaciones}"/>
+                                <br/>
+                                <b:inputText label="Dosis:" rendered="#{prescripcionControlador.medicamentoSeleccionado != null}" placeholder="Dosis" value="#{prescripcionControlador.dosis}"/>
+                                <hr/>
+                                <h:outputText rendered="#{prescripcionControlador.medicamentoSeleccionado == null}" class="text-center" value="BUSQUEDA DE MEDICAMENTOS" />
+                                <b:inputText rendered="#{prescripcionControlador.medicamentoSeleccionado == null}" placeholder="Buscar medicamento" binding="#{busqueda}"/>
+                                    <br/>
+                                        <b:radiobutton rendered="#{prescripcionControlador.medicamentoSeleccionado == null}" value="#{prescripcionControlador.tipoBusqueda}">
+                                            <f:selectItem itemValue="Nombre"   itemLabel="Nombre "/>
+                                            <f:selectItem itemValue="Principio" itemLabel="Principio Activo " />
+                                            <f:selectItem itemValue="Fabricante"  itemLabel="Fabricante " />
+                                            <f:selectItem itemValue="Familia"  itemLabel="Familia " />
+                                        </b:radiobutton>    
+                                    <br/>
+                                    <b:commandButton rendered="#{prescripcionControlador.medicamentoSeleccionado == null}" value="Buscar" update="medicamentos" actionListener="#{prescripcionControlador.buscarMedicamentos(busqueda.value)}" oncomplete="$('.modalPseudoClass').modal();"/>
+                                    <br/>
+                                    <b:dataTable rendered="#{prescripcionControlador.medicamentoSeleccionado == null}" fixedHeader="true" scroll-size="400px" scroll-x="false" responsive="true" value="#{prescripcionControlador.listaMedicamentos}" var="med">
+                                        <b:dataTableColumn value="#{med.fabricante}" />
+                                        <b:dataTableColumn value="#{med.familia}" />
+                                        <b:dataTableColumn value="#{med.nombre}" />
+                                        <b:dataTableColumn value="#{med.numeroDosis}" />
+                                        <b:dataTableColumn value="#{med.principioActivo}" />
+                                        <b:dataTableColumn>
+                                            <b:commandButton rendered="#{prescripcionControlador.medicamentoSeleccionado == null}" value="Seleccionar" update="medicamentos" actionListener="#{prescripcionControlador.setMedicamento(med)}" oncomplete="$('.modalPseudoClass').modal();"/>    
+                                            <b:commandButton rendered="#{prescripcionControlador.medicamentoSeleccionado != null}" value="Eliminar" update="medicamentos" actionListener="#{prescripcionControlador.unsetMedicamento()}" oncomplete="$('.modalPseudoClass').modal();"/>
+                                        </b:dataTableColumn>
+                                    </b:dataTable>    
+                                    
+                                    <b:commandButton rendered="#{prescripcionControlador.medicamentoSeleccionado != null}" value="Crear" actionListener="#{prescripcionControlador.doPrescripcionNueva(medicoControlador.citaActual)}" oncomplete="location.reload();return false;"/>
+                            </h:form>
+                        </p>
+                    <f:facet name="footer">
+                        <b:button value="close" dismiss="modal" onclick="location.reload();return false;"/>
+                    </f:facet>
+                </b:modal>
+                <b:row class="text-center encabezado1Menu">
+                    <b:column col-xs="12">
+                    </b:column>
+                </b:row>
+                <b:row class="text-center encabezado2Menu">
+                    <b:column col-xs="12" col-md="6">
+                            <span class="icon-Medic"></span>
+                            <h1><h:outputText  value="#{medicoControlador.medicoActual.nombre} #{medicoControlador.medicoActual.apellidos}" /></h1>
+                    </b:column>
+                    <b:column col-xs="12" col-md="6" id="detallePaciente">
+                        <b:column col-xs="12" rendered="#{medicoControlador.citaActual != null}">
+                            <span class="icon-Patient"></span>
+                            <h1><h:outputText  value="#{medicoControlador.citaActual.paciente.apellidos},#{medicoControlador.citaActual.paciente.nombre}" /></h1>
+                        </b:column>
+                    </b:column>
+                </b:row>
+                
+                <b:row>
+                    <b:column col-xs="12" id="agenda" style="padding-top: 10px;">
+                        <b:panel title="Agenda"  look="info">
+                            <b:form>
+                                <b:dataTable  value="#{medicoControlador.consultarCitasHoy()}" var="cita">
+                                    <b:dataTableColumn order="desc" label="Hora">
+                                       <h:outputText value="#{cita.hora}">
+                                           <f:convertDateTime pattern="HH:mm:ss" />
+                                       </h:outputText>
+                                   </b:dataTableColumn>
+                                   <b:dataTableColumn value="#{cita.duracion}"/>
+                                   <b:dataTableColumn value="#{cita.estado}" />
+                                   <b:dataTableColumn value="#{cita.paciente.apellidos},#{cita.paciente.nombre}" />
+                                   <b:dataTableColumn value="#{cita.paciente.dni}" />
+                                   <b:dataTableColumn label="Action">
+                                       <b:commandButton value="Details" update="detalleCita detallePaciente" actionListener="#{medicoControlador.setCitaActual(cita)}" onclick="location.reload()"/> 
+                                  </b:dataTableColumn>
+                                </b:dataTable>
+                            </b:form>
+                        </b:panel>    
+                    </b:column>
+                    
+                    <b:column col-xs="12" id="detalleCita">
+                        <b:panel title="Detalles-Cita"  look="info" rendered="#{medicoControlador.citaActual != null}">
+                            <b:form>
+                                <b:dataTable value="#{medicoControlador.citaActual}" var="details" searching="false" paginated="false">
+                                    <b:dataTableColumn value="#{details.id}"/>
+                                    <b:dataTableColumn value="#{details.paciente.dni}" />
+                                    <b:dataTableColumn value="#{details.paciente.apellidos},#{details.paciente.nombre}" />
+                                    <b:dataTableColumn value="#{details.estado}" />
+                                    <b:dataTableColumn label="Estado">
+                                               <b:commandButton value="Completada" update="agenda detalleCita" actionListener="#{medicoControlador.doFinalizarCitaRealizada()}"/> 
+                                               <b:commandButton value="Ausente" update="agenda detalleCita" actionListener="#{medicoControlador.doFinalizarCitaNoRealizada()}"/>
+                                    </b:dataTableColumn>
+                                </b:dataTable>
+                            </b:form>
+                            
+                            <button id="btrigger" class="btn btn-primary" data-target="#amodal" data-toggle="modal">Crear prescripcion</button>
+                            
+                            <b:panel id="prescripciones" title="Prescripciones" look="info"  style="margin-top: 10px;">
+                                <b:form>
+                                    <b:dataTable class="editablePrescription" value="#{prescripcionControlador.getPrescripcionesPaciente(medicoControlador.citaActual.paciente)}" var="prescripcion" style="padding-top:10px;">
+                                        <b:dataTableColumn value="#{prescripcion.id}"/>
+                                        <b:dataTableColumn label="FechaInicio">
+                                            <h:outputText value="#{prescripcion.fechaInicio}" rendered="#{prescripcionControlador.editable != prescripcion.id}"/>
+                                            <b:dateTimePicker value="#{prescripcionControlador.prescripcion.fechaInicio}" show-time='false' rendered="#{prescripcionControlador.editable == prescripcion.id}"/>
+                                        </b:dataTableColumn>
+                                        <b:dataTableColumn label="FechaFin">
+                                            <h:outputText value="#{prescripcion.fechaFin}" rendered="#{prescripcionControlador.editable != prescripcion.id}"/>
+                                            <b:dateTimePicker value="#{prescripcionControlador.prescripcion.fechaFin}" show-time='false' rendered="#{prescripcionControlador.editable == prescripcion.id}"/>
+                                        </b:dataTableColumn>
+                                        <b:dataTableColumn value="#{prescripcion.medicamento.nombre}" />
+                                        <b:dataTableColumn value="#{prescripcion.dosis}" />
+                                        <b:dataTableColumn label="Indicaciones">
+                                            <h:outputText value="#{prescripcion.indicaciones}" rendered="#{prescripcionControlador.editable != prescripcion.id}"/>
+                                            <h:inputText value="#{prescripcionControlador.prescripcion.indicaciones}" rendered="#{prescripcionControlador.editable == prescripcion.id}"/>
+                                        </b:dataTableColumn>
+                                        <b:dataTableColumn label="Action">
+                                            <b:commandButton value="Eliminar" update="detalleCita" actionListener="#{prescripcionControlador.eliminarPrescripcion(prescripcion)}"/> 
+                                            <b:commandButton value="Editar" icon="edit" update="@(.editablePrescription)" actionListener="#{prescripcionControlador.doModifyPrescription(prescripcion)}"/> 
+                                        </b:dataTableColumn>
+                                </b:dataTable>
+                            </b:form>
+                            </b:panel>
+                        </b:panel>
+                    </b:column>
+                </b:row>
+                
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

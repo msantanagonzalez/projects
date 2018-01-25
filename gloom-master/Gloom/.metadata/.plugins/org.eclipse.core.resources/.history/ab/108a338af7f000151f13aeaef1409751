@@ -1,0 +1,19 @@
+public class Personaje extends Carta{
+	private String nombre;
+	private boolean estaVivo;
+	
+	public Personaje(boolean esMuerte,int espacio1, int espacio2,int espacio3,String nombre){
+		Persona(esMuerte,espacio1,espacio2,espacio3);
+		this.nombre = nombre;
+		this.estaVivo = true;
+	}
+	public String getNombre(){
+		return this.nombre;
+	}
+	public boolean estaVivo(){
+		return this.estaVivo;
+	}
+	public void matarPersonaje(){
+		this.estaVivo = false;
+	}
+}

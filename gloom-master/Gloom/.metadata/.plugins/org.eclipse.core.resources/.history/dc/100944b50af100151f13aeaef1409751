@@ -1,0 +1,65 @@
+public class Personaje{
+	private String nombre;
+	private boolean estaVivo;
+	private int puntoAlto;
+	private int puntoMedio;
+	private int puntoBajo;
+	private Carta[] cartasAplicadas = new Carta[98];
+	private int cantidadCartas;
+	
+	public Personaje(String nombre){
+		this.nombre = nombre;
+		this.estaVivo = true;
+		this.cantidadCartas = 0;
+		this.puntoAlto = 0;
+		this.puntoMedio = 0;
+		this.puntoBajo = 0;
+	}
+	public String getNombre(){
+		return this.nombre;
+	}
+	public boolean estaVivo(){
+		return this.estaVivo;
+	}
+	public int getPuntoAlto(){
+		return this.puntoAlto;
+	}
+	public int getPuntoMedio(){
+		return this.puntoMedio;
+	}
+	public int getPuntoBajo(){
+		return this.puntoBajo;
+	}
+	public void matarPersonaje(){
+		this.estaVivo = false;
+	}
+	public void setPuntoAlto(int p){
+		this.puntoAlto = p;
+	}
+	public void setPuntoMedio(int p){
+		this.puntoMedio = p;
+	}
+	public void setPuntoBajo(int p){
+		this.puntoBajo = p;
+	}
+	public void setCarta(Carta c){
+		this.cartasAplicadas[this.cantidadCartas] = c;
+		this.cantidadCartas++;
+	}
+	//Print the character info
+    public String toString(){
+    	String data = "-";
+    		data += this.getNombre() + "-";
+    		if(this.estaVivo()){
+    			data += " Estado: vivo ";	
+    		}else{
+    			data += " Estado: MUERTO ";
+    		}
+    		
+    		data += "PA:" + this.getPuntoAlto() + ",";
+        	data += "PM:" + this.getPuntoMedio() + ",";
+        	data += "PB:" + this.getPuntoBajo() + ",";	
+    	
+    	return data;
+    }
+}

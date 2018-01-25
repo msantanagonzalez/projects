@@ -1,0 +1,12 @@
+public class Personaje {
+	private String nombre;
+	private boolean estaVivo;
+	
+	public Personaje(String nombre){
+		this.nombre = nombre;
+		this.estaVivo = true;
+	}
+	public String getNombre(){
+		return this.nombre;
+	}
+}

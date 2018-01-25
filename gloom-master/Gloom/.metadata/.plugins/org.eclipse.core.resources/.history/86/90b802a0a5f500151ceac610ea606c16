@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class Juego {
+	private static Jugador[] jugadores = new Jugador[4];
+	
+	public static void setJugadores(){
+		Scanner input = new Scanner(System.in);
+		try {
+			System.out.println("Introduce cantidad de jugadores: ");
+			int numeroJugadores = input.nextInt();
+			System.out.println("Jugadores: "+numeroJugadores);
+		} catch (Exception e) {
+		}
+		input.nextLine();
+		input.close();
+	}
+}

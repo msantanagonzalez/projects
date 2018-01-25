@@ -1,0 +1,3 @@
+public class Juego {
+	private static Jugador[] jugadores = new Jugador[4];
+}

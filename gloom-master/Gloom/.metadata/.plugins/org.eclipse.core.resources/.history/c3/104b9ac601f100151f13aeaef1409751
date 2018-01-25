@@ -1,0 +1,33 @@
+public class Familia {
+	private Personaje[] cartasPersonaje = new Personaje[5];
+	private int autoestima;
+	private boolean muertos;
+	
+	public Familia(Personaje[] p){
+		for(int i=0;i<p.length;i++){
+			this.cartasPersonaje[i] = p[i];
+		}
+		autoestima = 0;
+		muertos = false;
+	}
+	public int getAutoestima(){
+		//Implements calc autoestima
+		return this.autoestima;
+	}
+	public boolean muertos(){
+		return this.muertos;
+	}
+	
+	//Print the family members
+    public String toString(){
+    	int pos = 0;
+    	String data = "| ";
+    	
+    	while(actual!=null){
+    		data += this.cartasPersonaje[pos].getNombre() + ",";
+    		pos++;
+    	}
+    	data += " |";
+    	return data;
+    }
+}

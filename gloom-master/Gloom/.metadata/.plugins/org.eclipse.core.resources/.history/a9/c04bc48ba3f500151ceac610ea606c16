@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+public class Juego {
+	private static Jugador[] jugadores = new Jugador[4];
+	
+	public static void setJugadores(){
+		Scanner input = new Scanner(System.in);
+		int numeroJugadores = 0;
+		System.out.println("Introduce cantidad de jugadores: ");
+	}
+}

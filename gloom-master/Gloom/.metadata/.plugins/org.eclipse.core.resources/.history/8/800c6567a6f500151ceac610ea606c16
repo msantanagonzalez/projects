@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Juego {
+	private static Jugador[] jugadores = new Jugador[4];
+	
+	public static void setJugadores(){
+		Scanner input = new Scanner(System.in);
+		try {
+			System.out.println("Introduce cantidad de jugadores: ");
+			int numeroJugadores = input.nextInt();
+			if(numeroJugadores < 1 || numeroJugadores > 4){
+				error();
+			}
+			System.out.println("Jugadores: "+numeroJugadores);
+		} catch (Exception e) {
+			System.out.println("|Error|- Debes introducir un numero entre 1 y 4");
+		}
+		System.out.println("blabla");
+		input.nextLine();
+		input.close();
+	}
+
+	private static void error() throws Exception {
+		throw new Exception();
+	}
+}

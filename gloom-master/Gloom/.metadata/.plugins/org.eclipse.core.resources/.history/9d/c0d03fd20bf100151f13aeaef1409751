@@ -1,0 +1,37 @@
+public class Carta{
+	private boolean esMuerte;
+	private int puntoAlto;
+	private int puntoMedio;
+	private int puntoBajo;
+	
+	public Carta(boolean esMuerte,int puntoAlto, int puntoMedio,int puntoBajo){
+		this.esMuerte = esMuerte;
+		this.puntoAlto = puntoAlto;
+		this.puntoMedio = puntoMedio;
+		this.puntoBajo = puntoBajo;
+	}
+	public boolean esMuerte(){
+		return this.esMuerte;
+	}
+	public int getPuntoAlto(){
+		return this.puntoAlto;
+	}
+	public int getPuntoMedio(){
+		return this.puntoMedio;
+	}
+	public int getPuntoBajo(){
+		return this.puntoBajo;
+	}
+	//Print the card info
+    public String toString(){
+    	String data = "-| ";
+    	if(esMuerte){
+    		data += "MUERTE";
+    	}
+		data += "PA:" + this.getPuntoAlto() + ",";
+    	data += "PM:" + this.getPuntoMedio() + ",";
+    	data += "PB:" + this.getPuntoBajo() + ",";	
+    	data += " |-";
+    	return data;
+    }
+}

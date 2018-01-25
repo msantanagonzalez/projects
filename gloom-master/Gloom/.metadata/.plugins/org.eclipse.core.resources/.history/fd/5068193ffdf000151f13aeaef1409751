@@ -1,0 +1,27 @@
+public class Personaje extends Carta{
+	private String nombre;
+	private boolean estaVivo;
+	private Carta[] cartasAplicadas;
+	private int cantidadCartas;
+	
+	public Personaje(String nombre){
+		super(false,0,0,0); //Super class constructor(Carta)
+		this.nombre = nombre;
+		this.estaVivo = true;
+		Carta cartasAplicadas[] = new Carta[98];
+		this.cantidadCartas = 0;
+	}
+	public String getNombre(){
+		return this.nombre;
+	}
+	public boolean estaVivo(){
+		return this.estaVivo;
+	}
+	public void matarPersonaje(){
+		this.estaVivo = false;
+	}
+	public void setCarta(Carta c){
+		cartasAplicadas[cantidadCartas] = c;
+		cantidadCartas++;
+	}
+}

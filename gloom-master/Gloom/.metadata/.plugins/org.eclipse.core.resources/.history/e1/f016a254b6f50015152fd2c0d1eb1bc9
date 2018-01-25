@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Juego {
+	private static Jugador[] jugadores = new Jugador[4];
+	
+	public static void setJugadores(){
+		try {
+			Scanner input = new Scanner(System.in);
+			System.out.println("Introduce cantidad de jugadores: ");
+			int numeroJugadores = input.nextInt();
+			if(numeroJugadores < 1 || numeroJugadores > 4){
+				errorJugadores();
+			}
+			input.nextLine();
+			for(int i=0;i<numeroJugadores;i++){
+				System.out.println("--| Jugador "+(i+1)+" |--");
+				System.out.print("Nombre: ");
+				String name = input.next();
+				
+			}
+			System.out.println("Jugadores: "+numeroJugadores);
+			input.close();
+		} catch (Exception e) {
+			if(e.getMessage() != null)
+				System.out.println("|Error|-"+e.getMessage());
+			else
+				System.out.println("|Error|- Dato no valido");
+		}
+	}
+
+	private static void errorJugadores() throws Exception {
+		throw new Exception("Numero de jugadores no validos");
+	}
+}
